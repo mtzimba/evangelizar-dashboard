@@ -1,0 +1,17 @@
+
+<div class="row">
+	<div class="list-group ec-list">
+	<div class="row">	
+		<div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
+			<div class="row">
+				<div class="col col-md-8 text-col">
+					<h5 class="mb-1">{{item.payload.doc.data().name}}</h5>
+				</div>
+				<div class="col col-md-2 actions-col">
+					<button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
