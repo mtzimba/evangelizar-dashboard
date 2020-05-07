@@ -7,7 +7,7 @@ const COLLECTION_NAME = "evangelization-centers";
 @Injectable({
   providedIn: 'root'
 })
-export class EvangelizationCenterFirebaseService {
+export class CentrosFirebaseService {
 
   constructor(public db: AngularFirestore) { }
 
@@ -21,17 +21,17 @@ export class EvangelizationCenterFirebaseService {
 
   create(value){
     return this.db.collection(COLLECTION_NAME).add({
-      name: value.name,
-      address: value.address,
-      phoneNumber: value.phoneNumber
+      nome: value.nome,
+      endereco: value.endereco,
+      telefone: value.telefone
     });
   }
 
-  update(centerKey, value){
-    return this.db.collection(COLLECTION_NAME).doc(centerKey).set(value);
+  update(key, value){
+    return this.db.collection(COLLECTION_NAME).doc(key).set(value);
   }
 
-  delete(centerKey){
-    return this.db.collection(COLLECTION_NAME).doc(centerKey).delete();
+  delete(key){
+    return this.db.collection(COLLECTION_NAME).doc(key).delete();
   }
 }

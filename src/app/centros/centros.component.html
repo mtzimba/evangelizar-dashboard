@@ -1,0 +1,11 @@
+
+<h5>Centro de Evangelização</h5>
+<button mat-raised-button class="submit-button" color="primary" (click)="new()" type="button">
+	Novo
+</button>
+
+ <mat-nav-list>
+	<mat-list-item *ngFor="let item of itens">
+	   <a matLine [routerLink]="['/centros', item.payload.doc.id, 'editar']">{{item.payload.doc.data().nome}}</a>
+	</mat-list-item>
+  </mat-nav-list>

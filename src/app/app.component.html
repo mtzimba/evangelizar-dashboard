@@ -1,21 +1,10 @@
-<div class="page-container">
-  <div class="side-bar">
-		<ul class="nav flex-column">
-	  	<li class="nav-item">
-	    	<a class="nav-link active" routerLink="home">
-          Teste
-				</a>
-	  	</li>
-	  	<li class="nav-item">
-	    	<a class="nav-link" routerLink="new-user">
-          Novo
-				</a>
-	  	</li>
-		</ul>
-	</div>
-	<div class="content-container">
- 		<router-outlet></router-outlet>
-	</div>
+<mat-toolbar>
+	<span>Evangelizar</span>
+	<span>&nbsp;&nbsp;&nbsp;</span>
+	<a routerLink="centros"><span>Centros</span></a>
+	<span>&nbsp;&nbsp;&nbsp;</span>
+	<span>Eventos</span>
+</mat-toolbar>
+<div class="content-container">
+	<router-outlet></router-outlet>
 </div>
-<app-evangelization-center-list></app-evangelization-center-list>
-<app-evangelization-center-form></app-evangelization-center-form>
