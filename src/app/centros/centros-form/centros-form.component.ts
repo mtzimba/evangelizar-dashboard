@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { CentrosFirebaseService } from '../centros-firebase.service';
 
 
+
 @Component({
   selector: 'app-centros-form',
   templateUrl: './centros-form.component.html',
@@ -12,6 +13,7 @@ import { CentrosFirebaseService } from '../centros-firebase.service';
 export class CentrosFormComponent implements OnInit {
 
   centrosForm: FormGroup;
+  id: any;
 
   validation_messages = {
     'nome': [
@@ -32,15 +34,37 @@ export class CentrosFormComponent implements OnInit {
     public service: CentrosFirebaseService) { }
 
   ngOnInit(): void {
-    this.createForm();
+    this.id = null;
+    this.activatedRoute.params.subscribe(
+      params => {
+        if(params['id']) {
+         this.service.getByKey(params['id']).subscribe(
+           result => {
+            this.id = result.payload.id;
+            this.createForm(result.payload.data())});
+        } else {
+          this.createForm(null);
+        }
+      }
+    );
+
   }
 
-  createForm() {
-    this.centrosForm = this.fb.group({
-      nome: ['', Validators.required ],
-      endereco: ['', Validators.required ],
-      telefone: ['', Validators.required ]
-    });
+  createForm(value) {
+    if (value) {
+      this.centrosForm = this.fb.group({
+        nome: [value.nome, Validators.required ],
+        endereco: [value.endereco, Validators.required ],
+        telefone: [value.telefone, Validators.required ]
+      });
+    } else {
+      this.centrosForm = this.fb.group({
+        nome: ['', Validators.required ],
+        endereco: ['', Validators.required ],
+        telefone: ['', Validators.required ]
+      });
+    }
+    
   }
 
   resetFields(){
@@ -52,10 +76,10 @@ export class CentrosFormComponent implements OnInit {
   }
 
   onSubmit(value){
-    this.service.create(value).then(
+    this.service.update(this.id, value).then(
       res => {
         this.resetFields();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/centros']);
       }
     )
   }

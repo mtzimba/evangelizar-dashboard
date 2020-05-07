@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 
-const COLLECTION_NAME = "evangelization-centers";
+const COLLECTION_NAME = "centros";
 
 @Injectable({
   providedIn: 'root'
