@@ -76,12 +76,21 @@ export class CentrosFormComponent implements OnInit {
   }
 
   onSubmit(value){
-    this.service.update(this.id, value).then(
-      res => {
-        this.resetFields();
-        this.router.navigate(['/centros']);
-      }
-    )
+    if (this.id) {
+      this.service.update(this.id, value).then(
+        res => {
+          this.resetFields();
+          this.router.navigate(['/centros']);
+        }
+      )
+    } else {
+      this.service.create(value).then(
+        res => {
+          this.resetFields();
+          this.router.navigate(['/centros']);
+        }
+      )
+    }
   }
 
 }

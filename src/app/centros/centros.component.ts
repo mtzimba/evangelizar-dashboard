@@ -28,11 +28,19 @@ export class CentrosComponent implements OnInit {
   }
 
   edit(item){
-    this.router.navigate(['/centros/'+ item.payload.doc.id + 'editar']);
+    this.router.navigate(['/centros/'+ item.payload.doc.id + '/editar']);
   }
 
   new(){
     this.router.navigate(['/centros/novo']);
+  }
+
+  delete(item){
+    this.service.delete(item.payload.doc.id).then(
+      res => {
+        this.router.navigate(['/centros']);
+      }
+    )
   }
 }
 

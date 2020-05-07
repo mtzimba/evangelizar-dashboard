@@ -1,33 +1,22 @@
-<div>
-    <div>
+<div class="container">
+    <div class="row">
+		<h2>Centro de Evangelização</h2>
+    </div>
+    <div class="row">
         <form [formGroup]="centrosForm" novalidate (ngSubmit)="onSubmit(centrosForm.value)">
-
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>Nome</mat-label>
-                    <input matInput formControlName="nome">
-                </mat-form-field>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" formControlName="nome">
             </div>
-    
-
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>Endereço</mat-label>
-                    <input matInput formControlName="endereco">
-                </mat-form-field>
+            <div class="form-group">
+                <label for="endereco">Endereço</label>
+                <input type="text" class="form-control" id="endereco" formControlName="endereco">
             </div>
-    
-            <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>Telefone</mat-label>
-                    <input matInput formControlName="telefone">
-                </mat-form-field>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" id="telefone" formControlName="telefone">
             </div>
-        
-            <div>
-                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!centrosForm.valid">Salvar</button>
-            </div>
-        
+            <button type="submit" class="btn btn-primary" [disabled]="!centrosForm.valid">Salvar</button>
         </form>
     </div>
 </div>

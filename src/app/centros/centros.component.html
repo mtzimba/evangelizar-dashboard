@@ -1,11 +1,29 @@
 
-<h5>Centro de Evangelização</h5>
-<button mat-raised-button class="submit-button" color="primary" (click)="new()" type="button">
-	Novo
-</button>
-
- <mat-nav-list>
-	<mat-list-item *ngFor="let item of itens">
-	   <a matLine [routerLink]="['/centros', item.payload.doc.id, 'editar']">{{item.payload.doc.data().nome}}</a>
-	</mat-list-item>
-  </mat-nav-list>
+<div class="container">
+    <div class="row">
+		<h2>Centro de Evangelização</h2>
+    </div>
+	<div class="row">
+		<button type="button" class="btn btn-outline-primary" (click)="new()">Novo</button>
+	</div>
+	<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of itens">
+					<td>{{item.payload.doc.data().nome}}</td>
+					<td>
+						<button type="button" class="btn btn-outline-danger btn-sm"  (click)="edit(item)">Editar</button>
+						&nbsp;
+						<button type="button" class="btn btn-outline-danger btn-sm"  (click)="delete(item)">Excluir</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
