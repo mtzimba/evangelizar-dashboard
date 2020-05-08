@@ -16,7 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 import { CentrosModule } from './centros/centros.module';
-import { CentrosRoutingModule } from './centros/centros.routing.module';
+import { CentrosRoutingModule } from './centros/centros-routing.module';
+
+import { EventosModule } from './eventos/eventos.module';
+import { EventosRoutingModule } from './eventos/eventos-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,13 @@ import { CentrosRoutingModule } from './centros/centros.routing.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    CentrosRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
  	  AngularFirestoreModule,
     BrowserAnimationsModule,
     CentrosModule,
+    CentrosRoutingModule,
+    EventosModule,
+    EventosRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

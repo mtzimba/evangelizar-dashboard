@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CentrosComponent } from './centros.component';
 import { CentrosFormComponent } from './centros-form/centros-form.component';
 
-const CentrosRoutes: Routes = [
+const centrosRoutes: Routes = [
 
   { path: 'centros', component: CentrosComponent },
   { path: 'centros/novo', component: CentrosFormComponent },
@@ -12,7 +12,7 @@ const CentrosRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(CentrosRoutes)],
+  imports: [RouterModule.forChild(centrosRoutes)],
   exports: [RouterModule]
 })
 
