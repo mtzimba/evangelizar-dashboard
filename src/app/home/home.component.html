@@ -1,1 +1,24 @@
-<p>home works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" [routerLink]="['/']">Evangelizar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+	  <ul class="navbar-nav">
+		<li class="nav-item">
+		  <a class="nav-link" [routerLink]="['/eventos']" routerLinkActive="active">Eventos</a>
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" [routerLink]="['/centros']" routerLinkActive="active">Centros</a>
+		</li>
+	  </ul>
+	</div>
+	<ul class="navbar-nav px-3">
+		<li class="nav-item text-nowrap">
+		  <a class="nav-link" (click)="authService.logout()">Sair</a>
+		</li>
+	  </ul>
+</nav>
+<div class="content-container">
+	<router-outlet></router-outlet>
+</div>

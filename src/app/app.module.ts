@@ -7,13 +7,13 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 
 import { CentrosModule } from './centros/centros.module';
 import { CentrosRoutingModule } from './centros/centros-routing.module';
@@ -21,25 +21,32 @@ import { CentrosRoutingModule } from './centros/centros-routing.module';
 import { EventosModule } from './eventos/eventos.module';
 import { EventosRoutingModule } from './eventos/eventos-routing.module';
 
+import { AdminModule } from './admin/admin.module';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+
+import { AuthService } from './shared/services/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
- 	  AngularFirestoreModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     CentrosModule,
     CentrosRoutingModule,
     EventosModule,
-    EventosRoutingModule
+    EventosRoutingModule,
+    AdminModule,
+    AdminRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
