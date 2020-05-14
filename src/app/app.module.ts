@@ -13,38 +13,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 
-import { HomeComponent } from './home/home.component';
-
 import { CentrosModule } from './centros/centros.module';
-import { CentrosRoutingModule } from './centros/centros-routing.module';
 
 import { EventosModule } from './eventos/eventos.module';
-import { EventosRoutingModule } from './eventos/eventos-routing.module';
 
-import { AdminModule } from './admin/admin.module';
-import { AdminRoutingModule } from './admin/admin-routing.module';
+import { AuthModule } from './auth/auth.module';
 
 import { AuthService } from './shared/services/auth.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    CentrosModule,
-    CentrosRoutingModule,
+    DashboardModule,
     EventosModule,
-    EventosRoutingModule,
-    AdminModule,
-    AdminRoutingModule
+    CentrosModule,
+    AuthModule,
+    AppRoutingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

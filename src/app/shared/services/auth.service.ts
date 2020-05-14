@@ -27,18 +27,8 @@ export class AuthService {
   async login(email: string, password: string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
-      this.router.navigate(['home']);
       this.user = result.user;
-    }
-    catch (error) {
-      window.alert(error.message);
-    }
-  }
-
-  async sendEmailVerification() {
-    try {
-      await (await this.afAuth.currentUser).sendEmailVerification()
-      this.router.navigate(['verify-email']);
+      this.router.navigate(['dashboard']);
     }
     catch (error) {
       window.alert(error.message);
@@ -47,8 +37,8 @@ export class AuthService {
 
   async sendPasswordResetEmail(passwordResetEmail: string) {
     try {
+      this.router.navigate(['auth/login']);
       return await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
-      this.router.navigate(['login']);
     }
     catch (error) {
       window.alert(error.message);
@@ -59,7 +49,7 @@ export class AuthService {
     try {
       await this.afAuth.signOut();
       localStorage.removeItem('user');
-      this.router.navigate(['login']);
+      this.router.navigate(['auth/login']);
     }
     catch (error) {
       window.alert(error.message);

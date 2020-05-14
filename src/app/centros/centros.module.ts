@@ -8,20 +8,25 @@ import { CentrosFormComponent } from './centros-form/centros-form.component';
 import { RouterModule } from '@angular/router';
 
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { CentrosListComponent } from './centros-list/centros-list.component';
+import { CentrosRoutingModule } from './centros-routing.module';
 
 @NgModule({
   declarations: [
     CentrosComponent, 
-    CentrosFormComponent
+    CentrosListComponent,
+    CentrosFormComponent 
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    ButtonsModule
+    ButtonsModule,
+    CentrosRoutingModule
   ],
   exports: [
-    CentrosComponent, 
+    CentrosComponent,
+    CentrosListComponent, 
     CentrosFormComponent
   ],
   providers: [
