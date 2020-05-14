@@ -4,16 +4,6 @@
 
 export const environment = {
   production: false,
-  firebase : {
-    apiKey: "AIzaSyCymg9r_H7m2zgBaYy1Pgz036eVzGlWH2s",
-    authDomain: "evangelizarshapp-c20d3.firebaseapp.com",
-    databaseURL: "https://evangelizarshapp-c20d3.firebaseio.com",
-    projectId: "evangelizarshapp-c20d3",
-    storageBucket: "evangelizarshapp-c20d3.appspot.com",
-    messagingSenderId: "1036659092914",
-    appId: "1:1036659092914:web:b644412bba01bfb27c08ab",
-    measurementId: "G-1K00MFZ6G2"
-  }
 };
 
 /*
