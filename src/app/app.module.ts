@@ -7,39 +7,44 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-
 import { CentrosModule } from './centros/centros.module';
-import { CentrosRoutingModule } from './centros/centros-routing.module';
 
 import { EventosModule } from './eventos/eventos.module';
-import { EventosRoutingModule } from './eventos/eventos-routing.module';
+
+import { AuthModule } from './auth/auth.module';
+
+import { AuthService } from './shared/services/auth.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
- 	  AngularFirestoreModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
-    CentrosModule,
-    CentrosRoutingModule,
+    DashboardModule,
     EventosModule,
-    EventosRoutingModule
+    CentrosModule,
+    AuthModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

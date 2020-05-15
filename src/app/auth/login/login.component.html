@@ -1,0 +1,27 @@
+<div class="card">
+  <h4 class="card-header">Login</h4>
+  <div class="card-body">
+    
+    <div class="form-group">
+      <label for="username">Usuário</label>
+      <input type="text" class="form-control" #userName required>
+    </div>
+
+    <div class="form-group">
+      <input type="password" class="form-control" #userPassword required>
+    </div>
+
+    <!-- Calling SignIn Api from AuthService -->
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="authService.login(userName.value, userPassword.value)">Login</button>
+    </div>
+
+    <div class="form-group">
+      <span class="ou"><span class="orInner">Or</span></span>
+    </div>
+
+    <div class="form-group">
+      <span routerLink="/auth/forgot-password">Esqueçeu a senha?</span>
+    </div>
+  </div>
+</div>
