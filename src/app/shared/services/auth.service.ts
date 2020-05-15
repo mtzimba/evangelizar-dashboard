@@ -28,6 +28,7 @@ export class AuthService {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.user = result.user;
+      localStorage.setItem('user', JSON.stringify(this.user));
       this.router.navigate(['dashboard']);
     }
     catch (error) {
