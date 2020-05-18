@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <form (ngSubmit)="onSubmit()" #eventoForm="ngForm" >
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome"
+                    required
+                    [(ngModel)]="evento.nome" name="nome"
+                    #nome="ngModel">
+            </div>
+            <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert alert-danger">
+                Nome é obrigatório
+            </div>
+            
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea class="form-control" id="descricao"
+                    [(ngModel)]="evento.descricao" name="descricao"
+                    #descricao="ngModel" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!eventoForm.form.valid">Salvar</button>
+        </form>
+    </div>
+</div>
