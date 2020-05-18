@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 import { CentrosComponent } from './centros.component';
 import { CentrosFirebaseService } from './centros-firebase.service';
 import { CentrosFormComponent } from './centros-form/centros-form.component';
-import { RouterModule } from '@angular/router';
 
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { CentrosListComponent } from './centros-list/centros-list.component';
 import { CentrosRoutingModule } from './centros-routing.module';
 
@@ -19,9 +23,11 @@ import { CentrosRoutingModule } from './centros-routing.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
-    ReactiveFormsModule,
-    ButtonsModule,
+    ButtonsModule.forRoot(),
+    ModalModule.forRoot(),
+    NgxMaskModule.forRoot(),
     CentrosRoutingModule
   ],
   exports: [

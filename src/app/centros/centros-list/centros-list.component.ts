@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { CentrosFirebaseService } from '../centros-firebase.service';
 
@@ -11,15 +12,17 @@ import { CentrosFirebaseService } from '../centros-firebase.service';
 export class CentrosListComponent implements OnInit {
 
   itens: Array<any>;
+  modalRef: BsModalRef;
 
   constructor(
     private router: Router,
+    private modalService: BsModalService,
     public service: CentrosFirebaseService) { }
 
   ngOnInit(): void {
     this.getData();
   }
-
+  
   getData(){
     this.service.getAll()
       .subscribe(result => {

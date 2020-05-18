@@ -28,7 +28,11 @@ export class CentrosFirebaseService {
   }
 
   update(key, value){
-    return this.db.collection(COLLECTION_NAME).doc(key).set(value);
+    return this.db.collection(COLLECTION_NAME).doc(key).set({
+      nome: value.nome,
+      endereco: value.endereco,
+      telefone: value.telefone
+    });
   }
 
   delete(key){
