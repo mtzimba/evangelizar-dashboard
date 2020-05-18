@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { CentrosFirebaseService } from '../centros-firebase.service';
+import { EventosFirebaseService } from '../eventos-firebase.service';
 
 @Component({
-  selector: 'app-centros-list',
-  templateUrl: './centros-list.component.html',
-  styleUrls: ['./centros-list.component.css']
+  selector: 'app-eventos-list',
+  templateUrl: './eventos-list.component.html',
+  styleUrls: ['./eventos-list.component.css']
 })
-export class CentrosListComponent implements OnInit {
+export class EventosListComponent implements OnInit {
 
   itens: Array<any>;
 
   constructor(
     private router: Router,
-    public service: CentrosFirebaseService) { }
+    public service: EventosFirebaseService) { }
 
   ngOnInit(): void {
     this.getData();
@@ -28,17 +27,17 @@ export class CentrosListComponent implements OnInit {
   }
 
   edit(item){
-    this.router.navigate(['/centros/'+ item.payload.doc.id + '/editar']);
+    this.router.navigate(['/eventos/'+ item.payload.doc.id + '/editar']);
   }
 
   new(){
-    this.router.navigate(['/centros/novo']);
+    this.router.navigate(['/eventos/novo']);
   }
 
   delete(item){
     this.service.delete(item.payload.doc.id).then(
       res => {
-        this.router.navigate(['/centros']);
+        this.router.navigate(['/eventos']);
       }
     )
   }

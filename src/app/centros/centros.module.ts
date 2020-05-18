@@ -3,17 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
-
-import { CentrosComponent } from './centros.component';
-import { CentrosFirebaseService } from './centros-firebase.service';
-import { CentrosFormComponent } from './centros-form/centros-form.component';
-
+import { NgxMaskModule } from 'ngx-mask'
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { ModalModule } from 'ngx-bootstrap/modal';
 
-import { CentrosListComponent } from './centros-list/centros-list.component';
 import { CentrosRoutingModule } from './centros-routing.module';
+import { CentrosFirebaseService } from './centros-firebase.service';
+import { CentrosComponent } from './centros.component';
+import { CentrosListComponent } from './centros-list/centros-list.component';
+import { CentrosFormComponent } from './centros-form/centros-form.component';
 
 @NgModule({
   declarations: [
@@ -25,19 +22,12 @@ import { CentrosRoutingModule } from './centros-routing.module';
     CommonModule,
     FormsModule,
     RouterModule,
-    ButtonsModule.forRoot(),
-    ModalModule.forRoot(),
+    ButtonsModule,
     NgxMaskModule.forRoot(),
     CentrosRoutingModule
-  ],
-  exports: [
-    CentrosComponent,
-    CentrosListComponent, 
-    CentrosFormComponent
   ],
   providers: [
     CentrosFirebaseService
   ]
-  
 })
 export class CentrosModule { }
