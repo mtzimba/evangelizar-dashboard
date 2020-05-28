@@ -47,4 +47,5 @@ testem.log
 Thumbs.db
 
 # Ambiente
-/src/environments
+/src/environments/environment.prod.ts
+/src/environments/environment.ts
